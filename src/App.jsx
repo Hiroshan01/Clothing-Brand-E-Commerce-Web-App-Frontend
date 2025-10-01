@@ -7,6 +7,7 @@ import Home from './pages/Home';
 import LoginPage from './pages/Login';
 import RegisterPage from './pages/SignUp';
 import ProductPage from './pages/Product';
+import ProductOverview from './pages/ProductOverview';
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/sign-up" element={<RegisterPage />} />
           <Route path="/product" element={<ProductPage />} />
+          <Route path="/overview/:id" element={<ProductOverview />} />
         </Routes>
       </div>
     </BrowserRouter>
