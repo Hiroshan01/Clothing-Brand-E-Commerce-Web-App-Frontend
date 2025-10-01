@@ -9,7 +9,7 @@ export default function ProductCard({ product }) {
                 alt={product.ProductName}
                 className="w-full h-[200px] object-cover rounded-md mb-4"
             />
-            <h3 className="text-xl font-semibold text-gray-800 mb-2">{product.ProductName}</h3>
+            <h3 className="text-xl font-semibold text-gray-800 mb-2">{product.productName}</h3>
             <p className="text-gray-600 mb-2">{product.description.slice(0, 100)}...</p>
             <div className="flex justify-between items-center">
 
