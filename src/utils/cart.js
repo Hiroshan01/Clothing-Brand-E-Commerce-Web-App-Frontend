@@ -21,10 +21,10 @@ export function addCart(product, qty) {
     if (index == -1) {
         cart[cart.length] = {
             productId: product.productId,
-            name: product.ProductName,
+            name: product.productName,
             image: product.images[0],
             price: product.price,
-            labellPrice: product.labellPrice,
+            size: product.size,
             qty: qty
         }
     } else {

@@ -17,9 +17,11 @@ export default function ProductOverview() {
             .get(import.meta.env.VITE_BACKEND_URL + "/api/products/" + productId)
             .then((response) => {
                 setProduct(response.data);
+                console.log("XXXXXXXX", response.data)
                 setStatus("success");
             })
             .catch((error) => {
+
                 setStatus("error");
                 toast.error(error.response?.data?.message || "Error fetching product details");
             });
@@ -80,6 +82,16 @@ export default function ProductOverview() {
                                             {product.description || 'No description available'}
                                         </p>
                                     </div>
+                                    <div className="space-y-2">
+                                        <h3 className="text-lg font-semibold text-gray-900">Size</h3>
+                                        <p className="text-gray-700 leading-relaxed">
+                                            {product.size || 'No description available'}
+                                        </p>
+                                        <h3 className="text-lg font-semibold text-gray-900">Category</h3>
+                                        <p className="text-gray-700 leading-relaxed">
+                                            {product.category || 'No description available'}
+                                        </p>
+                                    </div>
 
                                     <div className="bg-blue-50 p-4 rounded-lg space-y-2">
                                         {product.labelledPrice < product.price ? (
@@ -117,6 +129,7 @@ export default function ProductOverview() {
                                                                 name: product.ProductName,
                                                                 image: product.images[0],
                                                                 price: product.price,
+                                                                size: product.size,
                                                                 labellPrice: product.labellPrice,
                                                                 qty: 1
                                                             }
