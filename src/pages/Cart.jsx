@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 export default function Cart() {
     const [cart, setCart] = useState(getCart());
-    console.log("CArt", cart)
+    //console.log("Cart", cart)
 
     return (
         <div className="w-full min-h-screen bg-gray-50 px-8 py-6">

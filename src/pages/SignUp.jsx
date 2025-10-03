@@ -28,7 +28,7 @@ export default function RegisterPage() {
             );
             toast.success("Registration Successful");
             navigate("/login");
-            console.log(response.data);
+            //console.log(response.data);
         } catch (e) {
             toast.error(e.response?.data?.message || "Registration failed");
             console.error("Registration failed:", e.response?.data?.message);
@@ -37,10 +37,9 @@ export default function RegisterPage() {
 
     return (
         <div className="w-full min-h-screen bg-[url('/images/login.png')] bg-center bg-cover flex flex-col md:flex-row justify-center items-center p-4">
-            {/* Left side - hidden on mobile, visible on md+ */}
+
             <div className="hidden md:block w-full md:w-[50%] h-full"></div>
 
-            {/* Right side - full width on mobile, 50% on md+ */}
             <div className="w-full md:w-[50%] flex justify-center items-center">
                 <div className="w-full max-w-sm md:w-[500px] md:h-[600px] min-h-[500px] backdrop-blur-lg rounded-[20px] shadow-xl flex flex-col justify-center items-center p-4 md:p-6 mx-4">
                     <input

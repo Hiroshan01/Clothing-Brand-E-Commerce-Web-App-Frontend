@@ -52,8 +52,6 @@ export default function LoginPage() {
             localStorage.setItem("token", response.data.token)
             window.dispatchEvent(new Event('loginSuccess'))
             navigate("/")
-
-            console.log(response.data);
         } catch (e) {
             toast.error(e.response?.data?.message || "Login failed");
         }

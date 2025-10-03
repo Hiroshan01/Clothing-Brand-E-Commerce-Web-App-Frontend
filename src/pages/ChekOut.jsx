@@ -13,7 +13,6 @@ export default function CheckoutPage() {
     const [name, setName] = useState('');
     const [isLoading, setIsLoading] = useState(false);
 
-    // Calculate total
     function getTotal() {
         let total = 0;
         cart.forEach((item) => {
@@ -22,14 +21,12 @@ export default function CheckoutPage() {
         return total;
     }
 
-    // Remove item from cart
     function removeFromCart(index) {
         const newCart = cart.filter((item, i) => i !== index);
         setCart(newCart);
         toast.success("Item removed from cart");
     }
 
-    // Change quantity
     function changeQty(index, qty) {
         const newQty = cart[index].qty + qty;
         if (newQty <= 0) {
@@ -59,16 +56,15 @@ export default function CheckoutPage() {
         setIsLoading(true);
 
         try {
-            // Prepare order data according to backend structure
             const orderInformation = {
                 products: cart.map(item => ({
                     productId: item.productId,
                     qty: item.qty,
-                    size: item.size || "N/A" // Include size if available
+                    size: item.size || "N/A"
                 })),
-                name: name.trim() || undefined, // Optional
-                address: address.trim() || undefined, // Optional
-                phone: phoneNo.trim() || undefined // Optional
+                name: name.trim() || undefined,
+                address: address.trim() || undefined,
+                phone: phoneNo.trim() || undefined
             };
             console.log("Order Info:", orderInformation);
 

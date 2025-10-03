@@ -16,7 +16,7 @@ function UserTag(props) {
             }
 
             const apiUrl = import.meta.env.VITE_API_URL
-            console.log(apiUrl)
+            //console.log(apiUrl)
 
             try {
                 const response = await axios.get(import.meta.env.VITE_BACKEND_URL + "/api/users/profile", {
@@ -26,7 +26,7 @@ function UserTag(props) {
                     },
                 })
 
-                console.log("Profile loaded:", response.data)
+                //console.log("Profile loaded:", response.data)
 
                 if (response.data && response.data.user) {
                     const { firstName, lastName, img } = response.data.user

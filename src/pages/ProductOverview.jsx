@@ -8,7 +8,7 @@ import { addCart } from "../utils/cart";
 export default function ProductOverview() {
     const params = useParams();
     const productId = params.id;
-    const [status, setStatus] = useState("loading"); // loading, success, error
+    const [status, setStatus] = useState("loading");
     const [product, setProduct] = useState(null);
     const navigate = useNavigate();
 
@@ -17,7 +17,7 @@ export default function ProductOverview() {
             .get(import.meta.env.VITE_BACKEND_URL + "/api/products/" + productId)
             .then((response) => {
                 setProduct(response.data);
-                console.log("XXXXXXXX", response.data)
+                //console.log("XXXXXXXX", response.data)
                 setStatus("success");
             })
             .catch((error) => {
@@ -33,7 +33,6 @@ export default function ProductOverview() {
                 <div className="max-w-6xl mx-auto px-8">
                     <div className="bg-white rounded-lg shadow-lg overflow-hidden">
                         <div className="flex">
-                            {/* Image Section */}
                             <div className="w-1/2 p-8">
                                 <div className="bg-gray-200 h-96 rounded-lg flex items-center justify-center">
                                     {product.images && product.images.length > 0 ? (
@@ -48,11 +47,11 @@ export default function ProductOverview() {
                                 </div>
                             </div>
 
-                            {/* Product Details Section */}
+
                             <div className="w-1/2 p-8 border-l border-gray-200">
                                 <div className="space-y-6">
 
-                                    {/* Product Title */}
+
                                     <div className="space-y-2">
                                         <h1 className="text-3xl font-bold text-gray-900">
                                             {product.name}
@@ -116,7 +115,6 @@ export default function ProductOverview() {
                                         )}
                                     </div>
 
-                                    {/* Action Buttons */}
                                     <div className="space-y-4">
                                         <button
                                             className="w-full bg-[#781D7D] text-white  hover:bg-purple-700  px-6 py-4 rounded-lg font-semibold  transition-colors duration-200 border border-gray-300 hover:border-gray-400"
@@ -142,16 +140,23 @@ export default function ProductOverview() {
                                         </button>
 
                                         <button
-                                            className="w-full bg-[#781D7D] text-white  hover:bg-purple-700  px-6 py-4 rounded-lg font-semibold  transition-colors duration-200 border border-gray-300 hover:border-gray-400"
+                                            className="w-full bg-[#781D7D] text-white hover:bg-purple-700 px-6 py-4 rounded-lg font-semibold transition-colors duration-200 border border-gray-300 hover:border-gray-400"
                                             onClick={() => {
-                                                addCart(product, 1)
+                                                addCart(product, 1);
+                                                toast.success("Product Added to Cart !", {
+                                                    duration: 3000,
+                                                    position: 'top-center',
+                                                    style: {
+                                                        background: '#10b981',
+                                                        color: '#ffffff',
+                                                    }
+                                                });
                                             }}
                                         >
                                             Add to Cart
                                         </button>
-                                    </div>
 
-                                    {/* Additional Info */}
+                                    </div>
 
                                 </div>
                             </div>

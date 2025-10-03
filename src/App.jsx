@@ -10,6 +10,7 @@ import ProductPage from './pages/Product';
 import ProductOverview from './pages/ProductOverview';
 import Cart from './pages/Cart';
 import CheckoutPage from './pages/ChekOut';
+import Footer from './components/Footer';
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
           <Route path="/cart" element={<Cart />} />
           <Route path="/checkout" element={<CheckoutPage />} />
         </Routes>
+        <Footer />
       </div>
     </BrowserRouter>
 
